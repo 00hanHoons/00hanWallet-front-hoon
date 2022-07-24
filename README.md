@@ -1,5 +1,5 @@
 # 빵빵한월렛 가계부 프로젝트
-"TEST용 코드 추가 TEST"
+"TEST용 코드 추가 TEST!"
 
 1. 로그인 화면
    ![127 0 0 1_8000_user_login](https://user-images.githubusercontent.com/92665811/180643770-925e3cc2-e943-4fee-916a-461cc140021e.png)
