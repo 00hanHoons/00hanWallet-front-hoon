@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>로그인</title>
+
+    <link rel="stylesheet" href="{% static 'css/login.css' %}"/>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+<body>
+<div>
+    <header class="header">
+        <span class="logo">00hanWallet</span>
+    </header>
+
+    <div>
+        <div class="login_box">
+            <div class="input_box">
+                <input type="email" placeholder="이메일" class="input_text" id="input_email"/>
+            </div>
+            <div class="input_box">
+                <input type="password" placeholder="비밀번호" class="input_text" id="input_password"/>
+            </div>
+            <div>
+                <button type="submit" class="login_btn" id="login_btn">로그인</button>
+            </div>
+        </div>
+
+        <div class="register_box">
+            <a href="register" class="register"> 회원가입 </a>
+        </div>
+    </div>
+</div>
+
+<script>
+    $("#login_btn").click(function () {
+        let email = $("#input_email").val();
+        let password = $("#input_password").val();
+
+        $.ajax({
+            url: "/user/login",
+            data: {
+                email: email,
+                password: password,
+            },
+            method: "POST",
+            success: function (data) {
+                alert("로그인 성공");
+                location.replace("/00hanwallet");
+            },
+            error: function (request, status, error) {
+                alert("회원정보가 잘못되었습니다.")
+                location.reload();
+            },
+            complete: function () {
+            },
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>00hanWallet</title>
+
+    <link rel="stylesheet" href="{% static 'css/main.css' %}"/>
+    <script src="{% static 'js/main.js' %}"></script>
+    <script
+            src="https://kit.fontawesome.com/6139c64877.js"
+            crossorigin="anonymous"
+    ></script>
+</head>
+<body>
+<nav class="nav_bar">
+    <div class="logo">00hanWallet</div>
+    <button class="logout_btn" onclick="location.href='/user/logout'">log out</button>
+</nav>
+<div class="box">
+    <div class="sub_nav">
+        <div class="date">
+            <span class="year">2022</span>
+            <span class="month">September</span>
+        </div>
+        <div class="move_btn">
+            <button class="prev_btn">
+                <i class="fa-solid fa-caret-left fa-4x"></i>
+            </button>
+            <button class="today_btn">Today</button>
+            <button class="next_btn">
+                <i class="fa-solid fa-caret-right fa-4x"></i>
+            </button>
+        </div>
+    </div>
+    <div class="calendar">자바스크립트로 달력 구현하기</div>
+</div>
+</body>
+</html>

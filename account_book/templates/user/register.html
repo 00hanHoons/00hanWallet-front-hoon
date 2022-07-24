@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>회원가입</title>
+
+    <link rel="stylesheet" href="{% static 'css/register.css' %}"/>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+<body>
+<div>
+    <header class="header">
+        <span class="logo">00hanWallet</span>
+    </header>
+
+    <div>
+        <div class="register_box">
+            <div class="input_box">
+                <input
+                        type="text"
+                        placeholder="이름"
+                        class="input_text"
+                        id="input_name"
+                />
+            </div>
+            <div class="input_box">
+                <input
+                        type="email"
+                        placeholder="이메일"
+                        class="input_text"
+                        id="input_email"
+                />
+            </div>
+            <div class="input_box">
+                <input
+                        type="password"
+                        placeholder="비밀번호"
+                        class="input_text"
+                        id="input_password"
+                />
+            </div>
+            <div>
+                <button type="submit" class="join_btn" id="join_btn">회원가입</button>
+            </div>
+        </div>
+
+        <div class="login_box">
+            <a href="login" class="login"> 로그인 </a>
+        </div>
+    </div>
+</div>
+
+<script>
+    $("#join_btn").click(function () {
+        let name = $("#input_name").val();
+        let email = $("#input_email").val();
+        let password = $("#input_password").val();
+
+        $.ajax({
+            url: "/user/register",
+            data: {
+                name: name,
+                email: email,
+                password: password,
+            },
+            method: "POST",
+            success: function (data) {
+                alert("회원가입 성공했습니다. 로그인해주세요.");
+                location.replace("/user/login");
+            },
+            error: function (request, status, error) {
+                alert("회원정보가 잘못되었습니다.")
+                location.reload();
+            },
+            complete: function () {
+            },
+        });
+    });
+</script>
+</body>
+</html>
